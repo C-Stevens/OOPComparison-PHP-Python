@@ -42,8 +42,8 @@
 * Easy modualization and packaging
 	- Python allows for the modularization and packaging of any code, aided by its simple import behavior. Python allows for select methods to be imported as well.
 	```python
-    import yourPackage
-   	from yourOtherPackage import method1, method2
+	import yourPackage
+	from yourOtherPackage import method1, method2
     ```
 * Built-in memory management
 	- Python will automatically allocate and deallocate memory with its native garbage collection service.
