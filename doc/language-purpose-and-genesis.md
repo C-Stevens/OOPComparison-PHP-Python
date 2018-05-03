@@ -1,4 +1,4 @@
-[<-- Return to index](../index.md)
+[<-- Return to index](../README.md)
 # Language Purpose & Genesis
 
 ### Why was the language created?
