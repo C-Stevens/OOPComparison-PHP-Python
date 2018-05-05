@@ -60,6 +60,7 @@ Specific namespace: bar
     echo '"', __NAMESPACE__, '"';
 ?>
 ```
+Will yeild `"myNamespace"`.
 
 * You can redefine or alias a valid namespace with the `use` keyword.
 ```php
@@ -68,7 +69,6 @@ Specific namespace: bar
     use bar\namespace\namespace2 as baz;
 ?>
 ```
-Will yeild `"myNamespace"`.
 
 * Also, you can select namespaces manually with the `use` keyword.
 ```php
