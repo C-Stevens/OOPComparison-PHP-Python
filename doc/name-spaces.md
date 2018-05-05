@@ -51,3 +51,38 @@ foo
     ```python
     from yourModule import *
     print(return4())
+    
+* Scopes and globals
+	- Python provides scope isolation for names and will follow heirarchal rules from the inside out for determining namespace in scopes.
+	```python
+	var = "apples"
+	def foo():
+	    print(var)
+	def bar():
+	    var = "bananas"
+	    print(var)
+	
+	>>> print(var)
+	apples
+	>>> foo()
+	apples
+	>>> bar()
+	bananas
+	>>> print(var)
+	apples
+	```
+	- Scope can be manually overridden to the global scope by use of the global keyword.
+	```python
+	var = "apples"
+	def foo():
+	    print(var)
+	def bar():
+	    global var
+	    var = "bananas"
+	
+	>>> foo()
+	apples
+	>>> bar()
+	>>> foo()
+	bananas
+	```
