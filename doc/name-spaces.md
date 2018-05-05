@@ -3,13 +3,82 @@
 
 ### How are name spaces implemented?
 #### PHP
-foo
+PHP allows for the manual creation of seperate namespaces to solve issues of inheritance and name collisions.
 #### Python
 Names in python are treated similarly to variables in most other languages. Since Python is very loosely typed, names can be very dynamic and applied to pretty much anything. 
 
 ### How are name spaces used?
 #### PHP
-foo
+* Namespaces must be manually and explicitly defined at the *very beginning* of the file.
+```php
+<?php
+    namespace myPackage;
+?>
+```
+* Namespace heirarchy must also be explictly defined. Sublevels between namespaces are denoted with a `\`.
+```php
+<?php
+    namespace myPackage\namespace2;
+?>
+```
+* Multiple namespaces can exist in a single file, but you must switch between them explicitly. The PHP manual does [not recommend](https://secure.php.net/manual/en/language.namespaces.definitionmultiple.php) this practice.
+```php
+<?php
+    namespace myNamespace {
+        $foo = "bar";
+    }
+    namespace myOtherNamespace {
+        $foo = "baz";
+    }
+?>
+```
+
+* Global variables are simply names that exist in an unnamed namespace. Without any namespace definition, the default will be global space.
+```php
+<?php
+    namespace myNamespace {
+        const foo = "bar";
+    }
+    
+    namespace { 
+        $foo = "baz";
+	echo "Global namespace: ".$foo;
+	echo "Specific namespace: ".myNamespace\foo;
+    }
+?>
+```
+Will yeild:
+```
+Global namespace: baz
+Specific namespace: bar
+```
+
+* PHP allows for inspection of the current namespace with the built-in `__NAMESPACE__` constant.
+```php
+<?php
+    namespace myNamespace;
+    echo '"', __NAMESPACE__, '"';
+?>
+```
+
+* You can redefine or alias a valid namespace with the `use` keyword.
+```php
+<?php
+    namespace foo;
+    use bar\namespace\namespace2 as baz;
+?>
+```
+Will yeild `"myNamespace"`.
+
+* Also, you can select namespaces manually with the `use` keyword.
+```php
+<?php
+    use ArrayObject; // Global class
+    use function bar\namespace\myFunction; // Imports a method called `myFunction` from the bar\namespace namespace
+    use function bar\namespace\myFunction as myNewFunction; // Aliases bar\namespace's `myFunction` method to the name `myNewFunction`
+?>
+```
+
 #### Python
 * Names can be given to entire methods:
   ```python
