@@ -5,11 +5,10 @@
 #### PHP
 ```php
 <?php
-	class myClass {
-    	public $foo = 1
-        
+    class myClass {
+        public $foo = 1
         public function returnFoo() {
-        	echo $this->foo;
+            echo $this->foo;
         }
     }
 ?>
@@ -17,8 +16,7 @@
 #### Python
 ```python
 class myClass:
-    foo = 1
-    
+    foo = 1   
 	def returnFoo(self):
     	return self.foo
 
