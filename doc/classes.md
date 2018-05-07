@@ -17,8 +17,8 @@
 ```python
 class myClass:
     foo = 1   
-	def returnFoo(self):
-    	return self.foo
+    def returnFoo(self):
+        return self.foo
 
 ```
 
@@ -37,9 +37,10 @@ foo = myClass()
 PHP classes are constructed by defining a [`__construct()`](https://secure.php.net/manual/en/language.oop5.decon.php) method.
 ```php
 <?php
-	class myClass {
-    	function __construct($foo) {
-        	$this->foo = $foo;
+    class myClass {
+        public $foo;
+        function __construct($foo) {
+            $this->foo = $foo;
         }
     }
 ?>
@@ -48,8 +49,8 @@ PHP classes are constructed by defining a [`__construct()`](https://secure.php.n
 Python classes are constructing by defining a [`__init__`](https://docs.python.org/2/reference/datamodel.html#object.__init__) method.
 ```python
 class myClass:
-	def __init__(self, foo):
-    	self.foo = foo
+    def __init__(self, foo):
+        self.foo = foo
 ```
 
 ### Class deconstruction/deinitialization
@@ -57,9 +58,9 @@ class myClass:
 Destructor  in PHP will be called once there exist no references to an object. These are created by defining a [`__destruct()`](https://secure.php.net/manual/en/language.oop5.decon.php#destructor) method.
 ```php
 <?php
-	class myClass {
-    	function __destruct() {
-        	echo "Goodbye";
+    class myClass {
+        function __destruct() {
+            echo "Goodbye";
         }
     }
 ?>
@@ -70,20 +71,20 @@ Python supports deconstruction in two ways. One, when an object is created with 
 The `__del__()` method will be called when Python's garbage collector deallocates its memory once there are no longer any references to the object. It should be noted that use of this function is generally frowned upon by most Python developers, who instead either construct their objects in such a way to be used as context managers, or let the native Python garbage collector handle object deconstruction.
 ```python
 class myClass:
-	def __init__(self, foo):
-    	self.foo = foo
+    def __init__(self, foo):
+        self.foo = foo
     def __del__(self):
-    	print("Goodbye")
+        print("Goodbye")
 ```
 
 The other form of object deinitialization is when an object is being used as a context manager. This behavior is not called specifically when the object is about to be deallocated, but rather at the end of some logical operation. In this way, developers can manually and specifically call cleanup methods, reset variables, etc. while within a particular context. Practically, this means objects will only have their exit called when being treated in code as a context manager, which means being called with the `with` keyword. The "deconstructor" itself is created by defining a `__exit__()` method:
 
 ```python
 class myClass:
-	def __init__(self):
-    	print("Object has been created")
+    def __init__(self):
+        print("Object has been created")
     def __enter__(self):
-    	print("Object entered with runtime context")
+        print("Object entered with runtime context")
     def __exit__(self):
         print("Object called as runtime context is ending")
     def doStuff(self):
