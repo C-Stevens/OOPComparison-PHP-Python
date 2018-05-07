@@ -6,8 +6,8 @@
 PHP allows for the assignment of anonymous inner functions to variables. The keyword for their creation is still `function`, identical to standard named function creation.
 ```php
 <?php
-$celciusToFarenheight = function($t) { return (9/5)*t+32; };
-print $celciusToFarenheight(13);
+    $celciusToFarenheight = function($t) { return (9/5)*t+32; };
+    print $celciusToFarenheight(13);
 ?>
 ```
 Will yield `55.4`.
