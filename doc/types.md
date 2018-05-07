@@ -60,7 +60,7 @@ However when passing strings or numbers, Python will behave as if they are passe
 ```python
 def foo(bar):
 	bar+=1
-    print("Bar from inside foo: %d"%bar)
+   	print("Bar from inside foo: %d"%bar)
 baz = 4
 
 >>>print(baz)
