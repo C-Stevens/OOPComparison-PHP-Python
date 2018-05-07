@@ -3,9 +3,9 @@
 
 ### What does the language call these?
 #### PHP
-PHP calls variables with no value [`NULL`s](https://secure.php.net/manual/en/language.types.null.php). Variables are NULL if they are manually assigned as such, their value has never been set to anything before, or they are unset via the [`unset()`](https://secure.php.net/manual/en/function.unset.php) method.
+PHP calls variables with no value [`NULL`](https://secure.php.net/manual/en/language.types.null.php). Variables are NULL if they are manually assigned as such, their value has never been set to anything before, or they are unset via the [`unset()`](https://secure.php.net/manual/en/function.unset.php) method.
 #### Python
-Python calls variables with no value `None`. 
+Python calls variables with no value [`None`](https://docs.python.org/3/library/constants.html#None). 
 
 ### What are the features of handling these?
 #### PHP
