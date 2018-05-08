@@ -8,22 +8,22 @@ When objects are compared with the comparison operator `==`, the objects will be
 When objects are compared with the identity operator `===`, the objects will be considered equal if they both refer to the same reference of an object.
 ```php
 <?php
-	class myClass {
-    	public $foo;
+    class myClass {
+        public $foo;
         public $bar;
-    	function __construct($foo, $bar) {
-        	$this->foo = $foo;
+        function __construct($foo, $bar) {
+            $this->foo = $foo;
             $this->bar = $bar;
         }
     }
-    
+
     $a = new myClass("apples", "oranges");
     $b = new myClass("apples", "oranges");
     $c = $a;
-    
-   	($a == $b) ? print "a equals b" : print "a does not equal b";
-	($a === $b) ? print "a and b reference the same object" : print "a and b do not reference the same object";
-	($a === $c) ? print "a and c reference the same object" : print "a and c do not reference the same object";
+
+    ($a == $b) ? print "a equals b" : print "a does not equal b";
+    ($a === $b) ? print "a and b reference the same object" : print "a and b do not reference the same object";
+    ($a === $c) ? print "a and c reference the same object" : print "a and c do not reference the same object";
 ?>
 ```
 Will yield:
