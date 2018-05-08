@@ -6,30 +6,30 @@
 Object variables can be set by defining [`__get()`](http://us1.php.net/manual/en/language.oop5.overloading.php#object.get) and [`__set()`](http://us1.php.net/manual/en/language.oop5.overloading.php#object.set). PHP will call the getter and setter methods when normally inaccessable (eg. not public) properties are being either read or written respectively. The following example is based off of a [stackoverflow response](https://stackoverflow.com/questions/4478661/getter-and-setter):
 ```php
 <?php
-	class myClass {
-    	private $foo;
+    class myClass {
+        private $foo;
         private $bar;
-        
-        public function __get($property) {
-    		if (property_exists($this, $property)) {
-     			return $this->$property;
-    		}
-  		}
 
- 	 	public function __set($property, $value) {
-    		if (property_exists($this, $property)) {
-        		$this->$property = $value;
-    		}
-    		return $this;
-  		}
+        public function __get($property) {
+            if (property_exists($this, $property)) {
+                return $this->$property;
+            }
+        }
+
+        public function __set($property, $value) {
+            if (property_exists($this, $property)) {
+                $this->$property = $value;
+            }
+            return $this;
+        }
     }
 ?>
 ```
 Public properties can be accessed directly.
 ```php
 <?php
-	class myClass {
-    	public $foo = 4;
+    class myClass {
+        public $foo = 4;
     }
     $bar = new MyClass();
     $bar->foo = 5;
@@ -39,16 +39,16 @@ Public properties can be accessed directly.
 Python naturally assumes all attributes to be public, so the use of a getter or setter is not necessary. One can be constructed if you want in a way similar to this:
 ```python
 class myClass():
-	foo = 4
+    foo = 4
     def getFoo():
-    	return self.foo
+        return self.foo
     def setFoo(value):
-    	self.foo = value
+        self.foo = value
 ```
 However it's far easier to just access the properties directly, like so:
 ```python
 class myClass():
-	foo = 4
+    foo = 4
 
 bar = myClass()
 
@@ -73,8 +73,8 @@ PHP does not have built-in support for computed properties and has no good ways 
 Python can create computed properties by use of the `@property` and use of the `property` [class](https://docs.python.org/3/library/functions.html#property).  A simple example to create a property that computes the middle of a width is as follows:
 ```python
 class myClass():
-	def __init__(self, width):
-    	self.width = width
+    def __init__(self, width):
+        self.width = width
     @property
     def middle(self):
         return self.width/2
@@ -88,15 +88,15 @@ foo = myClass(11)
 By use of properties getters, setters, and deleters can be manually defined if specific logic is required for the individual cases. The following code is nearly identical to an example in the [Python documentation](https://docs.python.org/3/library/functions.html#property):
 ```python
 class myClass():
-	def __init__(self, width):
-    	self.width = width
-       @property
-       def width(self): # Functions like a getter
-           return self.width
-       @width.setter
-       def width(self, value): # Functions like a setter
-           self.width = value
-       @width.deleter
-       def width(self):
-           del self.width
+    def __init__(self, width):
+        self.width = width
+    @property
+    def width(self): # Functions like a getter
+        return self.width
+    @width.setter
+    def width(self, value): # Functions like a setter
+        self.width = value
+    @width.deleter
+    def width(self):
+        del self.width
 ```
