@@ -17,15 +17,15 @@ Python has several inspection methods built natively into the language.  These i
 By use of a [`ReflectionClass`](https://secure.php.net/manual/en/class.reflectionclass.php) object. You may pass an object's name to an object of this type at creation time to allow inspection of various attributes or conditions of a class. For example, the following will provide a list of available methods for a class called `myClass`:
 ```php
 <?php
-	class myClass {
-    	function foo() {
-        	print "Foo method";
+    class myClass {
+        function foo() {
+            print "Foo method";
         }
         function bar($baz) {
             print "Bar method";
         }
     }
-    
+
     $reflector = new ReflectionClass('myClass');
     var_dump($reflector->getMethods());
 ?>
@@ -34,11 +34,11 @@ will yield:
 ```
 array(2) { 
     [0]=> object(ReflectionMethod)#3 (2) {
-    	["name"]=> string(3) "foo" 
+        ["name"]=> string(3) "foo" 
         ["class"]=> string(7) "myClass" 
     }
     [1]=> object(ReflectionMethod)#4 (2) {
-    	["name"]=> string(3) "bar" 
+        ["name"]=> string(3) "bar" 
         ["class"]=> string(7) "myClass" 
     }
 }
@@ -48,8 +48,8 @@ array(2) {
 Various object details can be determined by using the above described and linked reflection method programmatically. For example, to see if an object is an instance of a given class:
 ```python
 class myClass:
-	def foo(self):
-    	print("foo")
+    def foo(self):
+        print("foo")
 
 a = myClass()
 
