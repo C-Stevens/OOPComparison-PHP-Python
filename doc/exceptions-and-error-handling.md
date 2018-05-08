@@ -8,18 +8,18 @@ Errors in PHP can be detected with a `try` block and a `catch` block. The code i
 Exceptions can be thrown manually with the `throw` keyword. Since exceptions [are classes](https://secure.php.net/manual/en/class.exception.php) in PHP, you can still access all their inherited methods and properties.
 ```php
 <?php
-function foo($bar) {
-	if($bar == "baz") {
-    	throw new Exception("Bar is equal to baz!");
+    function foo($bar) {
+        if($bar == "baz") {
+            throw new Exception("Bar is equal to baz!");
+        }
+        return true;
     }
-    return true;
-}
 
-try {
-	foo("baz");
-catch(Exception $e) {
-	print "An exception was caught: ".$e->getMessage();
-}
+    try {
+        foo("baz");
+    } catch(Exception $e) {
+        print "An exception was caught: ".$e->getMessage();
+    }
 ?>
 ```
 Will yield:
@@ -30,9 +30,9 @@ An exception was caught: Bar is equal to baz!
 Custom exceptions can also be defined, since exceptions are objects:
 ```php
 <?php
-	class myError extends Exception {
-    	public function reportError() {
-        	return "There was an error!";
+    class myError extends Exception {
+        public function reportError() {
+            return "There was an error!";
         }
     }
 ?>
@@ -51,14 +51,14 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 
 try:
-	10/0
+    10/0
 except ZeroDivisionError: // Catch only ZeroDivisionError exceptions
-	print("Divided by zero!")
+    print("Divided by zero!")
 
 try:
-	10/0
+    10/0
 except: // Catch any exception thrown
-	print("Some exception was thrown!")
+    print("Some exception was thrown!")
 ```
 
 Exceptions can be manually thrown as well:
@@ -72,7 +72,7 @@ NameError
 Python has many [built-in exceptions](https://docs.python.org/3/library/exceptions.html#bltin-exceptions), but you can also make your own by subclassing the `Exception` class:
 ```python
 class myError(Exception):
-	pass
+    pass
 
 >>>raise myError
 Traceback (most recent call last):
