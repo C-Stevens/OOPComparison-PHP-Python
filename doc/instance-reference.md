@@ -6,12 +6,12 @@
 By use of the `this` keyword.
 ```php
 <?php
-	class myClass {
-    	public $foo = 4;
+    class myClass {
+        public $foo = 4;
         private $bar = 5;
-        
+
         function baz() {
-        	echo $this->foo;
+            echo $this->foo;
             echo $this->bar;
         }
     }
@@ -22,7 +22,7 @@ Will echo both variables of the class, public and private. Private variables, ho
 By use of the `self` keyword.
 ```python
 class myClass:
-	foo = 4
+    foo = 4
     def baz():
-    	print(self.foo)
+        print(self.foo)
 ```
