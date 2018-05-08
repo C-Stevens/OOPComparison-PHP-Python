@@ -18,11 +18,11 @@ In Python, abstract methods can only declare what methods are required in the ob
 Abstract classes can be defined in the following way:
 ```php
 <?php
-	abstract class myAbstractClass {
-    	abstract protected function foo();
-        
+    abstract class myAbstractClass {
+        abstract protected function foo();
+
         public function bar() { // Common method
-        	print "Hello world"
+            print "Hello world"
         }
     }
 ?>
@@ -30,9 +30,9 @@ Abstract classes can be defined in the following way:
 And can be implemented in the following way (assuming the previously defined abstract class exists):
 ```php
 <?php
-	class myConcreteClass extends myAbstractClass {
-    	protected function foo() {
-        	print "This is my implementation of the foo method";
+    class myConcreteClass extends myAbstractClass {
+        protected function foo() {
+            print "This is my implementation of the foo method";
         }
     }
 ?>
@@ -43,14 +43,14 @@ Abstract classes can be created in the following way (Note: the `ABC` class *mus
 from abc import ABC, abstractmethod
 
 class myAbstractClass(ABC):
-	@abstractmethod
+    @abstractmethod
     def foo(self):
-    	pass
+        pass
 ```
 And abstract classes can be "implemented" in the following way (assuming the previously defined abstract class exists):
 ```python
 class myClass(myAbstractClass):
-	def foo(self):
-    	print("This is my implementation of the foo method")
+    def foo(self):
+        print("This is my implementation of the foo method")
 ```
 If a class that inherits an abstract class is created and does not implement one of the abstract methods, a `TypeError` exception will be raised.
