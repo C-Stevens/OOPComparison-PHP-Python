@@ -30,8 +30,8 @@ By default, PHP will pass types by value.
 However, PHP allows for variables and references returned from functions to be passed and referred to by reference by prefacing variables with `&`.
 ```php
 <?php
-	function foo(&$bar) {
-    	$bar++;
+    function foo(&$bar) {
+        $bar++;
     }
     $baz = 5;
     foo();
@@ -44,7 +44,7 @@ Will yield `6`.
 Python has no explicit rules for declaring how variable types are passed. If an object, tuple, array, etc. is passed in Python the object's reference will be passed rather than its value.
 ```python
 def foo(bar):
-	bar.append(3)
+    bar.append(3)
 baz = [0, 1, 2]
 
 >>>print(baz)
@@ -59,8 +59,8 @@ foo(baz)
 However when passing strings or numbers, Python will behave as if they are passed by value. For example, when passing a number:
 ```python
 def foo(bar):
-	bar+=1
-   	print("Bar from inside foo: %d"%bar)
+    bar+=1
+    print("Bar from inside foo: %d"%bar)
 baz = 4
 
 >>>print(baz)
