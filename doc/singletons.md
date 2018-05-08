@@ -6,17 +6,17 @@
 There exists no native support for singletons in PHP, but they can be approximated programmatically most easily by implementing a factory class. The following example comes from a [stack overflow response](https://stackoverflow.com/questions/203336/creating-the-singleton-design-pattern-in-php5):
 ```php
 <?php
-	final class UserFactory {
-    	public static function Instance() {
-        	static $instance = NULL;
+    final class UserFactory {
+        public static function Instance() {
+            static $instance = NULL;
             if($instance === NULL) {
-            	$instance = new UserFactory();
+                $instance = new UserFactory();
             }
             return $instance;
         }
         private function __construct() { } // Empty constructor to prevent unintended initialization
     }
-    
+
     // Foo and bar are comparatively equal
     $foo = UserFactory::Instance();
     $bar = UserFactory::Instance();
@@ -26,15 +26,14 @@ There exists no native support for singletons in PHP, but they can be approximat
 Singletons are not native to Python, but their design pattern can be approximated. This can be done due to Python's ability to have an object inherit properties of two super classes, but it can be approximated in a more clean matter by using [metaclasses](https://stackoverflow.com/questions/100003/what-are-metaclasses-in-python). The following example is taken from [this stackoverflow response](https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python):
 ```python
 class Singleton:
-	__instances = {}
+    __instances = {}
     def __call__(cls, *args, **kwargs):
-    	if cls not in cls._instances:
+        if cls not in cls._instances:
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
-        
+
 class myClass(SuperClass, metaclass=Singleton):
-	pass
-    
+    pass
 ```
 ### Can they be made thread safe?
 #### PHP
@@ -44,14 +43,14 @@ Not easily or natively. PHP has less well defined threading functions than Pytho
 ```python
 import threading
 class Singleton:
-	__singleton_lock = threading.Lock()
+    __singleton_lock = threading.Lock()
     __singleton_instance = None
-    
+
     @classmethod
     def instance(cls):
-    	if not cls.__singleton_instance:
-        	with cls.__singleton_lock:
-            	if not cls.__singleton_instance:
+        if not cls.__singleton_instance:
+            with cls.__singleton_lock:
+                if not cls.__singleton_instance:
                     cls.__singleton_instance = cls() # See https://docs.python.org/3/library/functions.html#classmethod
         return cls.__singleton_instance
 ```
