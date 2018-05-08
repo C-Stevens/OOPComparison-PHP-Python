@@ -37,7 +37,7 @@
 	- Unlike PHP, Python allows a subclass to extend multiple super classes. This carries with it increased complexity but allows for complicated and sophisticated object oriented code in the correct hands.
 	```python
     class SubClass(SuperClass, SuperClass2, SuperClass3, ...):
-    	pass
+        pass
     ```
 * Easy modualization and packaging
 	- Python allows for the modularization and packaging of any code, aided by its simple import behavior. Python allows for select methods to be imported as well.
